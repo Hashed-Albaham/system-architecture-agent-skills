@@ -40,3 +40,7 @@ Model worker crash, rebalance, poison record, hot key, source outage, sink throt
 - [ ] Event-time, watermark, late-data and state-retention policies are bounded.
 - [ ] Checkpoint/restore and sink side effects are consistent and tested.
 - [ ] Lag, skew, throughput, errors, checkpoint health and drain capacity are monitored.
+
+## Source alignment
+
+Aligned with DDIA Chapters 10–12 and selected product-design patterns from Alex Xu Chapters 9–15. See the concise English [chapter-to-skill crosswalk](../../references/chapter-to-skill-crosswalk.md) for the chapter mapping; this skill is original engineering guidance, not a substitute for the books.

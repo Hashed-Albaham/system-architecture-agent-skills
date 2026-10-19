@@ -36,3 +36,7 @@ For each primitive document API, state, invariants, failure behavior, distributi
 - [ ] Clock and coordination assumptions are explicit.
 - [ ] Fail-open/closed, retry and overload policies are defined.
 - [ ] Security and abuse controls match exposure.
+
+## Source alignment
+
+Aligned with DDIA Chapters 5–9 for distributed-failure context and Alex Xu Chapters 2 and 4–8 for estimation and infrastructure patterns. See the concise English [chapter-to-skill crosswalk](../../references/chapter-to-skill-crosswalk.md); this skill is original engineering guidance, not a substitute for the books.

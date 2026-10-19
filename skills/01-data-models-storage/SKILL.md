@@ -65,3 +65,7 @@ Test WAL recovery, disk-full behavior, replica lag, compaction backlog, index co
 - [ ] Engine-specific amplification and maintenance are understood.
 - [ ] Logical versus physical storage, replicas and backup capacity are distinguished.
 - [ ] Restore and migration are exercised with production-like scale.
+
+## Source alignment
+
+Aligned with DDIA Chapters 2–3 and Alex Xu Chapter 6. See the concise English [chapter-to-skill crosswalk](../../references/chapter-to-skill-crosswalk.md) for the chapter mapping; this skill is original engineering guidance, not a substitute for the books.

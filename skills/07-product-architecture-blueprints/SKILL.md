@@ -56,3 +56,7 @@ Start with a modular application and a reliable primary datastore where feasible
 - [ ] Privacy, deletion, authorization and abuse prevention are included.
 - [ ] Backfill/rebuild, retention and disaster recovery are planned.
 - [ ] Topology and sizing are adapted to measured requirements; no scale claim is unsupported.
+
+## Source alignment
+
+Aligned with Alex Xu Chapters 1 and 8–15, with dataflow and derived-state context from DDIA Chapters 10–12. See the concise English [chapter-to-skill crosswalk](../../references/chapter-to-skill-crosswalk.md); this skill is original engineering guidance, not a substitute for the books.

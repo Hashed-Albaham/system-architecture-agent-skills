@@ -48,3 +48,7 @@ Monitor per-replica lag, quorum availability, partition skew, hot keys, repair b
 - [ ] Conflict resolution is deterministic and auditable when multi-writer is used.
 - [ ] Rebalancing is staged, throttled, monitored and reversible.
 - [ ] Secondary indexes have freshness, fan-out and rebuild strategies.
+
+## Source alignment
+
+Aligned with DDIA Chapters 5–6 and 8–9 and Alex Xu Chapters 1, 5–6. See the concise English [chapter-to-skill crosswalk](../../references/chapter-to-skill-crosswalk.md) for the chapter mapping; this skill is original engineering guidance, not a substitute for the books.

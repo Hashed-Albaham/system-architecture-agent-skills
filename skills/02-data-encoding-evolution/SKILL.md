@@ -62,3 +62,7 @@ Limit payload size and nesting; validate before allocation or expensive parsing.
 - [ ] Rollout and backfill are resumable, observable and reversible within a stated window.
 - [ ] Event history semantics and duplicate handling are defined.
 - [ ] Payload limits, validation, sensitive-data handling and dead-letter access are covered.
+
+## Source alignment
+
+Aligned with DDIA Chapter 4. See the concise English [chapter-to-skill crosswalk](../../references/chapter-to-skill-crosswalk.md) for the chapter mapping; this skill is original engineering guidance, not a substitute for the book.

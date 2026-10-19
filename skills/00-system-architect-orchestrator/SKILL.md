@@ -92,3 +92,7 @@ Produce: concise requirements and assumptions; workload table with formulas; API
 - [ ] Backups have tested restoration; migrations have rollback or recovery strategy.
 - [ ] Trade-offs and assumptions are visible; system complexity is justified.
 - [ ] Relevant specialist skills were consulted and implementation claims verified.
+
+## Source alignment
+
+This original workflow is aligned with DDIA Chapters 1 and 12 and Alex Xu Chapters 1–3 and 16. See the concise English [chapter-to-skill crosswalk](../../references/chapter-to-skill-crosswalk.md) for the chapter mapping; it is a study aid, not a replacement for either book.

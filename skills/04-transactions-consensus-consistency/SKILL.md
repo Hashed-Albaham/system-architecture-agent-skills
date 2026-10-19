@@ -54,3 +54,7 @@ Wall clocks can jump or skew; monotonic clocks measure elapsed time locally but 
 - [ ] Consensus claims include quorum, epoch, persistence and reconfiguration assumptions.
 - [ ] Clock-derived decisions account for skew, jumps and concurrent updates.
 - [ ] User-visible staleness, conflict or reduced availability is documented.
+
+## Source alignment
+
+Aligned with DDIA Chapters 7–9. See the concise English [chapter-to-skill crosswalk](../../references/chapter-to-skill-crosswalk.md) for the chapter mapping; this skill is original engineering guidance, not a substitute for the book.

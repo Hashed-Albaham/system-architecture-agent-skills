@@ -40,3 +40,7 @@ Run `python3 scripts/validate_skills.py` from the repository root. The validator
 ## License
 
 Original repository text is licensed under MIT; see `LICENSE`. Third-party names are used only for identification. No third-party book content is included.
+
+## Chapter study map
+
+The repository now includes a concise English [chapter-to-skill crosswalk](references/chapter-to-skill-crosswalk.md) covering DDIA Chapters 1–12 and Alex Xu Chapters 1–16. It summarizes each chapter in original wording and maps practical takeaways to the relevant skill folders. These notes are a learning aid, not a substitute for the books; the source PDFs are not included.
