@@ -1,0 +1,47 @@
+schema_version: 1
+package:
+  name: system-design-agent
+  version: 1.0.0
+  language: en
+  entrypoint: SKILL.md
+  description: >-
+    Portable agent skill suite for production system architecture, design review,
+    security, reliability, and verification.
+  activation_triggers:
+    - system design or architecture proposal
+    - architecture review or technical decision analysis
+    - scalability, data, consistency, or reliability design
+    - security/privacy architecture for a software system
+    - production readiness, migration, backup, or recovery plan
+  invocation:
+    full_design: Read SKILL.md, references/skill-router.md, the orchestrator, and applicable specialist skills.
+    focused_task: Read SKILL.md and the single applicable specialist skill; add dependencies identified by the router.
+    full_review: Read SKILL.md, references/architecture-review-checklist.md, and relevant specialists.
+  quality_constraints:
+    - Never promise zero errors or absolute security.
+    - Separate evidence, estimates, assumptions, and unknowns.
+    - Verify current product-specific behavior with official documentation.
+    - Report checks actually run and residual risks.
+specialist_skills:
+  - path: skills/00-system-architect-orchestrator/SKILL.md
+    triggers: requirements, workload sizing, system-wide design
+  - path: skills/01-data-models-storage/SKILL.md
+    triggers: data models, database selection, indexes, storage engine
+  - path: skills/02-data-encoding-evolution/SKILL.md
+    triggers: schemas, serialization, API/event compatibility
+  - path: skills/03-replication-partitioning/SKILL.md
+    triggers: replication, sharding, partitioning, consistency
+  - path: skills/04-transactions-consensus-consistency/SKILL.md
+    triggers: transactions, isolation, consensus, ordering
+  - path: skills/05-batch-stream-processing/SKILL.md
+    triggers: batch, streams, queues, CDC, replay
+  - path: skills/06-infrastructure-primitives/SKILL.md
+    triggers: rate limiting, identifiers, cache, key-value patterns
+  - path: skills/07-product-architecture-blueprints/SKILL.md
+    triggers: crawler, feed, chat, notifications, search, video, file sync
+  - path: skills/08-security-privacy-architecture/SKILL.md
+    triggers: threat model, identity, authorization, privacy, secrets
+  - path: skills/09-reliability-operations/SKILL.md
+    triggers: SLOs, monitoring, incident response, backup, disaster recovery
+  - path: skills/10-architecture-verification/SKILL.md
+    triggers: architecture audit, readiness, tests, evidence, release gate
