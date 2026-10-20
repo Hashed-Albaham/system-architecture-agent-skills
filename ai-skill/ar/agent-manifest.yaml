@@ -1,0 +1,47 @@
+schema_version: 1
+package:
+  name: system-design-agent-ar
+  version: 1.0.0
+  language: ar
+  entrypoint: SKILL.md
+  description: >-
+    حزمة مهارات عربية محايدة للوكيل لتصميم الأنظمة الإنتاجية ومراجعتها
+    وهندسة أمنها واعتماديتها والتحقق منها.
+  activation_triggers:
+    - تصميم نظام أو اقتراح معمارية
+    - مراجعة تصميم أو تحليل قرار تقني
+    - تصميم التوسع أو البيانات أو الاتساق أو الاعتمادية
+    - هندسة أمن وخصوصية نظام برمجي
+    - جاهزية الإنتاج أو خطة ترحيل أو نسخ أو استعادة
+  invocation:
+    full_design: اقرأ SKILL.md وreferences/skill-router.md والمنسق والتخصصات المناسبة.
+    focused_task: اقرأ SKILL.md والتخصص المناسب وأضف التبعيات التي يحددها الموجّه.
+    full_review: اقرأ SKILL.md وreferences/architecture-review-checklist.md والتخصصات ذات الصلة.
+  quality_constraints:
+    - لا تعد بانعدام الأخطاء أو الأمان المطلق.
+    - افصل الأدلة والتقديرات والافتراضات والمجهولات.
+    - تحقق من سلوك المنتجات الحالي في الوثائق الرسمية.
+    - أبلغ عن الفحوص المنفذة والمخاطر المتبقية.
+specialist_skills:
+  - path: skills/00-system-architect-orchestrator/SKILL.md
+    triggers: المتطلبات وتقدير الحمل والتصميم الشامل
+  - path: skills/01-data-models-storage/SKILL.md
+    triggers: نماذج البيانات وقواعد البيانات والفهارس ومحركات التخزين
+  - path: skills/02-data-encoding-evolution/SKILL.md
+    triggers: المخططات والتسلسل وتوافق الواجهات والأحداث
+  - path: skills/03-replication-partitioning/SKILL.md
+    triggers: النسخ والتجزئة ومفاتيح التقسيم والاتساق
+  - path: skills/04-transactions-consensus-consistency/SKILL.md
+    triggers: المعاملات والعزل والإجماع والترتيب
+  - path: skills/05-batch-stream-processing/SKILL.md
+    triggers: الدفعات والتدفقات والطوابير وCDC وإعادة التشغيل
+  - path: skills/06-infrastructure-primitives/SKILL.md
+    triggers: محددات المعدل والمعرفات والذاكرة المخبئية وأنماط المفتاح والقيمة
+  - path: skills/07-product-architecture-blueprints/SKILL.md
+    triggers: الزاحف والخلاصة والمحادثة والإشعارات والبحث والفيديو ومزامنة الملفات
+  - path: skills/08-security-privacy-architecture/SKILL.md
+    triggers: التهديد والهوية والتفويض والخصوصية والأسرار
+  - path: skills/09-reliability-operations/SKILL.md
+    triggers: أهداف الخدمة والمراقبة والحوادث والنسخ والتعافي من الكوارث
+  - path: skills/10-architecture-verification/SKILL.md
+    triggers: التدقيق المعماري والجاهزية والاختبارات والأدلة وبوابة الإطلاق

@@ -1,0 +1,13 @@
+flowchart LR
+    A["1 · Scope<br/>١ · النطاق"] --> B["2 · Requirements & SLOs<br/>٢ · المتطلبات ومؤشرات الخدمة"]
+    B --> C["3 · Workload sizing<br/>٣ · تقدير الحمل والسعة"]
+    C --> D["4 · Data & contracts<br/>٤ · البيانات والعقود"]
+    D --> E["5 · Architecture & flows<br/>٥ · المعمارية وتدفقات البيانات"]
+    E --> F["6 · Deep dives & trade-offs<br/>٦ · التحليل والمفاضلات"]
+    F --> G["7 · Security & operations<br/>٧ · الأمن والتشغيل"]
+    G --> H["8 · Verify, deliver, revisit<br/>٨ · التحقق والتسليم والمراجعة"]
+    H -. "new evidence / أدلة جديدة" .-> B
+    classDef process fill:#eef5ff,stroke:#2563eb,color:#10233f,stroke-width:2px;
+    classDef final fill:#e8f7ef,stroke:#15803d,color:#123322,stroke-width:2px;
+    class A,B,C,D,E,F,G process;
+    class H final;

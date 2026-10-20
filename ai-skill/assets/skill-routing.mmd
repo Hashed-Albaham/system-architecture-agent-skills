@@ -1,0 +1,19 @@
+flowchart TB
+    R["Architecture request<br/>طلب تصميم أو مراجعة"] --> M["Root skill · system-design-agent<br/>المهارة الرئيسية · منسق التصميم"]
+    M --> O["00 · Orchestrator<br/>تنسيق النطاق والتقدير والتصميم"]
+    O --> D["01–07 · Technical specialties<br/>البيانات · التخزين · التوزيع · الاتساق · المعالجة · الأنماط"]
+    O --> S["08 · Security & privacy<br/>الأمن والخصوصية"]
+    O --> P["09 · Reliability & operations<br/>الاعتمادية والتشغيل"]
+    O --> V["10 · Verification<br/>التحقق والأدلة"]
+    D --> X["Architecture proposal + review<br/>تصميم معماري ومراجعة موثقة"]
+    S --> X
+    P --> X
+    V --> X
+    classDef request fill:#fff7ed,stroke:#c2410c,color:#431407,stroke-width:2px;
+    classDef root fill:#e0f2fe,stroke:#0369a1,color:#082f49,stroke-width:2px;
+    classDef specialty fill:#eef2ff,stroke:#4338ca,color:#1e1b4b,stroke-width:2px;
+    classDef output fill:#ecfdf5,stroke:#15803d,color:#052e16,stroke-width:2px;
+    class R request;
+    class M,O root;
+    class D,S,P,V specialty;
+    class X output;

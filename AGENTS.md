@@ -1,13 +1,14 @@
-# Repository instructions for AI agents
+# تعليمات المستودع لوكلاء الذكاء الاصطناعي
 
-For system design, architecture review, scaling, or production readiness work:
+لمهام تصميم الأنظمة أو مراجعتها أو توسيعها أو تقييم جاهزيتها للإنتاج:
 
-1. Read `ai-skill/SKILL.md` first.
-2. Read `ai-skill/references/skill-router.md` and the relevant specialist `SKILL.md` files before making domain-specific decisions.
-3. Use `ai-skill/references/architecture-design-template.md` for substantial design deliverables and `ai-skill/references/architecture-review-checklist.md` as a risk-based gate.
-4. Treat user constraints as authoritative. Ask only material clarifying questions; otherwise label assumptions and proceed.
-5. Show sizing formulas with units and inputs. Distinguish measured data, estimates, assumptions, and unknowns.
-6. Verify current product-specific claims against official documentation. Do not infer provider guarantees from generic patterns.
-7. Include correctness, failure, security, operations, migration, rollback, backup, and recovery considerations as appropriate.
-8. Never claim zero defects or absolute security. State what was checked, what passed, and what remains uncertain.
-9. Do not copy or commit source-book PDFs or long copyrighted excerpts. The English chapter study map is original and non-substitutive.
+1. اقرأ `ai-skill/SKILL.md` أو النسخة العربية `ai-skill/ar/SKILL.md` أولًا.
+2. اقرأ موجّه المهارات المختار والمهارات التخصصية ذات الصلة قبل القرارات الخاصة بالمجال.
+3. استخدم قوالب التصميم وقائمة التحقق للمخرجات الشاملة.
+4. احترم قيود المستخدم؛ اطرح الأسئلة الجوهرية فقط، وإلا فصرّح بالافتراضات.
+5. اعرض صيغ التقدير ووحداتها، وافصل القياس عن التقدير والافتراض والمجهول.
+6. تحقق من ادعاءات المنتجات الراهنة في وثائقها الرسمية.
+7. غطِّ الصحة والفشل والأمن والعمليات والترحيل والتراجع والنسخ والاستعادة.
+8. لا تدّعِ انعدام الأخطاء أو الأمان المطلق؛ اذكر ما فُحص وما بقي غير مؤكد.
+9. لا تنسخ ملفات الكتب أو مقاطع مطولة منها.
+10. **هوية الالتزامات الجديدة:** استخدم اسم المؤلف `Hashed-Albaham` والبريد المضبوط في إعداد Git للمستخدم. لا تضبط المؤلف يدويًا إلى اسم مساعد أو منصة أو خدمة؛ ولا تضف اسم Manus أو Manus Platform إلى الالتزامات أو رسائلها أو البيانات الوصفية التي تنشئها. لا تغيّر تاريخ الالتزامات السابقة أو تدفع دفعًا قسريًا دون موافقة صريحة منفصلة.

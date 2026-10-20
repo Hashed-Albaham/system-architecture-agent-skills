@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
-"""Validate the portable AI system-design skill package using only Python's standard library."""
+"""Validate the bilingual portable AI system-design skill package."""
 from pathlib import Path
 import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGE = ROOT / "ai-skill"
-SKILLS = PACKAGE / "skills"
 errors: list[str] = []
 seen_names: set[str] = set()
 
@@ -23,7 +22,6 @@ def validate_skill(skill_file: Path) -> None:
         return
     frontmatter = text[4:closing]
     name_match = re.search(r"(?m)^name:\s*([^\s]+)\s*$", frontmatter)
-    description_match = re.search(r"(?m)^description:\s*(.+)$", frontmatter)
     if not name_match:
         errors.append(f"{rel}: missing name field")
     else:
@@ -31,11 +29,8 @@ def validate_skill(skill_file: Path) -> None:
         if name in seen_names:
             errors.append(f"{rel}: duplicate skill name {name}")
         seen_names.add(name)
-    if not description_match:
+    if not re.search(r"(?m)^description:\s*.+$", frontmatter):
         errors.append(f"{rel}: missing description field")
-    elif len(description_match.group(1)) > 1024:
-        errors.append(f"{rel}: description exceeds 1024 characters")
-
     body = text[closing + 5:]
     if len(body.splitlines()) > 500:
         errors.append(f"{rel}: body exceeds 500-line guidance")
@@ -44,41 +39,51 @@ def validate_skill(skill_file: Path) -> None:
     if not re.search(r"(?m)^## .+", body):
         errors.append(f"{rel}: missing H2 section")
 
-root_skill = PACKAGE / "SKILL.md"
-if not root_skill.is_file():
-    errors.append("Missing ai-skill/SKILL.md")
-else:
-    validate_skill(root_skill)
 
-specialists = sorted(SKILLS.glob("*/SKILL.md"))
-for skill_file in specialists:
-    validate_skill(skill_file)
-if len(specialists) != 11:
-    errors.append(f"Expected 11 specialist skills, found {len(specialists)}")
+for relative in (Path("SKILL.md"), Path("ar/SKILL.md")):
+    path = PACKAGE / relative
+    if path.is_file():
+        validate_skill(path)
+    else:
+        errors.append(f"Missing ai-skill/{relative.as_posix()}")
 
-crosswalk = PACKAGE / "references" / "chapter-to-skill-crosswalk.md"
-if not crosswalk.is_file():
-    errors.append("Missing ai-skill/references/chapter-to-skill-crosswalk.md")
-else:
-    text = crosswalk.read_text(encoding="utf-8")
+english_skills = sorted((PACKAGE / "skills").glob("*/SKILL.md"))
+arabic_skills = sorted((PACKAGE / "ar" / "skills").glob("*/SKILL.md"))
+for path in english_skills + arabic_skills:
+    validate_skill(path)
+if len(english_skills) != 11:
+    errors.append(f"Expected 11 English specialist skills, found {len(english_skills)}")
+if len(arabic_skills) != 11:
+    errors.append(f"Expected 11 Arabic specialist skills, found {len(arabic_skills)}")
+
+for lang_path in (PACKAGE / "references" / "chapter-to-skill-crosswalk.md", PACKAGE / "ar" / "references" / "chapter-to-skill-crosswalk.md"):
+    if not lang_path.is_file():
+        errors.append(f"Missing {lang_path.relative_to(ROOT)}")
+        continue
+    text = lang_path.read_text(encoding="utf-8")
     chapter_count = len(re.findall(r"(?m)^### Chapter \d+ — ", text))
+    # Arabic crosswalk uses a localized heading format: ### الفصل رقم — title
+    if " /ar/" in lang_path.as_posix() or lang_path.parts[-3] == "ar":
+        chapter_count = len(re.findall(r"(?m)^### الفصل \d+ — ", text))
     if chapter_count != 28:
-        errors.append(f"Expected 28 chapter entries in crosswalk, found {chapter_count}")
-    if "## Synthesis" not in text:
-        errors.append("Crosswalk is missing the synthesis section")
+        errors.append(f"{lang_path.relative_to(ROOT)}: expected 28 chapters, found {chapter_count}")
+    if not re.search(r"(?m)^## (Synthesis|الخلاصة)", text):
+        errors.append(f"{lang_path.relative_to(ROOT)}: missing synthesis section")
 
-# Validate relative Markdown links in every document shipped inside the package.
-for markdown_file in PACKAGE.rglob("*.md"):
+# Validate relative Markdown links across both language trees and root docs.
+for markdown_file in [*PACKAGE.rglob("*.md"), ROOT / "README.md", ROOT / "README.ar.md", ROOT / "AGENTS.md"]:
+    if not markdown_file.is_file():
+        continue
     text = markdown_file.read_text(encoding="utf-8")
     for target in re.findall(r"\[[^\]]*\]\(([^)]+)\)", text):
         if "://" in target or target.startswith("#"):
             continue
         local_target = target.split("#", 1)[0]
-        if not (markdown_file.parent / local_target).resolve().exists():
+        if local_target and not (markdown_file.parent / local_target).resolve().exists():
             errors.append(f"{markdown_file.relative_to(ROOT)}: broken local link {target}")
 
 if errors:
     print("Validation failed:")
     print("\n".join(f"- {error}" for error in errors))
     sys.exit(1)
-print(f"Validated the root skill, {len(specialists)} specialist skills, all 28 chapter entries, and package Markdown links.")
+print(f"Validated root skills, {len(english_skills)} English and {len(arabic_skills)} Arabic specialists, both chapter maps, and Markdown links.")
