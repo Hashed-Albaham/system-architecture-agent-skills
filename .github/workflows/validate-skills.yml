@@ -1,5 +1,4 @@
 name: Validate AI Skill Package
-
 on:
   push:
     branches: [main]
