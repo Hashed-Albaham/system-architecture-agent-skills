@@ -5,8 +5,8 @@ package:
   language: en
   entrypoint: SKILL.md
   description: >-
-    Portable agent skill suite for production system architecture, design review,
-    security, reliability, and verification.
+    Portable system design skill suite. Its single entry point classifies the user's
+    request and explicitly supplied task brief, then selects the relevant specialists.
   activation_triggers:
     - system design or architecture proposal
     - architecture review or technical decision analysis
@@ -14,6 +14,8 @@ package:
     - security/privacy architecture for a software system
     - production readiness, migration, backup, or recovery plan
   invocation:
+    entrypoint: Start with SKILL.md; the user does not need to select a specialist.
+    automatic_routing: Parse the complete request into outcomes, constraints, and workstreams; choose every relevant skill by intent, not keywords alone.
     full_design: Read SKILL.md, references/skill-router.md, the orchestrator, and applicable specialist skills.
     focused_task: Read SKILL.md and the single applicable specialist skill; add dependencies identified by the router.
     full_review: Read SKILL.md, references/architecture-review-checklist.md, and relevant specialists.

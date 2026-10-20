@@ -2,7 +2,7 @@
 
 [English](README.md) · [العربية](README.ar.md)
 
-A portable, vendor-neutral skill suite for AI agents that design, review, and evolve production systems. The complete package is in [`ai-skill/`](ai-skill/README.md): one root skill, ten specialists, diagrams, bilingual guides, templates, checklists, and an English chapter study map.
+A portable, vendor-neutral skill suite for AI agents that design, review, and evolve production systems. Its root skill is the single entry point: the agent parses the user's request and designated brief, then selects the relevant specialist skills automatically. The complete package is in [`ai-skill/`](ai-skill/README.md): one root skill, ten specialists, diagrams, bilingual guides, templates, checklists, and an English chapter study map.
 
 ## System design workflow
 

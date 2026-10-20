@@ -40,6 +40,17 @@ def validate_skill(skill_file: Path) -> None:
         errors.append(f"{rel}: missing H2 section")
 
 
+required_routing_headings = {
+    PACKAGE / "SKILL.md": "## Automatic request routing and skill invocation",
+    PACKAGE / "ar" / "SKILL.md": "## التوجيه التلقائي للطلب واستدعاء المهارات",
+    PACKAGE / "references" / "skill-router.md": "## Automatic routing from the user's request",
+    PACKAGE / "ar" / "references" / "skill-router.md": "## التوجيه التلقائي من طلب المستخدم",
+}
+for routing_file, heading in required_routing_headings.items():
+    if not routing_file.is_file() or heading not in routing_file.read_text(encoding="utf-8"):
+        errors.append(f"{routing_file.relative_to(ROOT)}: missing automatic skill-routing section")
+
+
 for relative in (Path("SKILL.md"), Path("ar/SKILL.md")):
     path = PACKAGE / relative
     if path.is_file():

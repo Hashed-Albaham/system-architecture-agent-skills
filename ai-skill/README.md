@@ -2,7 +2,7 @@
 
 [English](README.md) · [العربية](ar/README.md)
 
-A portable, vendor-neutral skill suite for AI agents that design, review, and evolve production systems. Keep this entire directory together when installing the package: the root `SKILL.md` routes the agent to specialist skills, references, and visual guides.
+A portable, vendor-neutral skill suite for AI agents that design, review, and evolve production systems. The root `SKILL.md` is the single entry point: it reads the user's request and designated task brief, then automatically selects one or more relevant specialist skills—the user does not need to choose them. Keep this entire directory together when installing the package.
 
 ## Architecture workflow
 
